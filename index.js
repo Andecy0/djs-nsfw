@@ -15,98 +15,75 @@ client.on('message', function(m){
     if (m.content.startsWith(prefix + 'hug')){
         images_api.sfw.hug().then(response => {
             m.channel.send(response.image)
-        }) 
+        })    
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'kiss')){
         images_api.sfw.kiss().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'slap')){
         images_api.sfw.slap().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'punch')){
         images_api.sfw.punch().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'wink')){
         images_api.sfw.wink().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'pat')){
         images_api.sfw.pat().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'kill')){
         images_api.sfw.kill().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'cuddle')){
         images_api.sfw.cuddle().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'wafiu')){
         images_api.sfw.wafiu().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'hentai')){
         images_api.nsfw.hentai().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'boobs')){
         images_api.nsfw.boobs().then(response => {
             m.channel.send(response.image)
         }) 
     }
-})
 
-client.on('message', function(m){
     if (m.content.startsWith(prefix + 'lesbian')){
         images_api.nsfw.lesbian().then(response => {
             m.channel.send(response.image)
         }) 
     }
 })
-
 
 var express = require('express'); 
 
