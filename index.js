@@ -1,16 +1,20 @@
-const Nsfwbot = require("aoi.js")
 const fs = require("fs")
 const ms = require("ms")
-const Nsfw = new Nsfwbot.Bot({
-    token:"TOKEN",
-    prefix:"PREFIX"
-})
+client.login("TOKEN")
 var prefix = "PREFIX"
 const Discord = require('discord.js');
 const client = new Discord.Client()
 const API = require('anime-images-api')
 const images_api = new API() 
 
+//help mune embed
+const help = new Discord.MessageEmbed()
+    .setTitle("Help Menu")
+    .setColor("fff")
+    .setDescription("Hello ", ${message.author.tag}, "! \n Here are some commands that might come in handy \n **hug**\n" + prefix + "hug \n **kiss**\n" + prefix + "kiss \n **Slap**\n" + prefix + "slap \n" + prefix + "slap \n **Punch** \n" + prefix + "punch \n **Wink** \n" + prefix + "wink \n **Pat** \n" + prefix + "pat \n **kill** \n" + prefix + "kill \n **cuddle** \n" + prefix + "cuddle \n **Wafiu** \n Out Of Using \n \n **NSFW Command** \n **Boobs**\n" + prefix + "boobs \n **Hentai** \n" + prefix + "hentai \n **Lesbian** \n" + prefix + "lesbian")
+    .setFooter("Using by "${message.author.tag})
+
+//Commands and response messages
 client.on('message', function(m){
     if (m.content.startsWith(prefix + 'hug')){
         images_api.sfw.hug().then(response => {
@@ -52,7 +56,7 @@ client.on('message', function(m){
         images_api.sfw.kill().then(response => {
             m.channel.send(response.image)
         }) 
-    }
+    }+
 
     if (m.content.startsWith(prefix + 'cuddle')){
         images_api.sfw.cuddle().then(response => {
@@ -61,9 +65,7 @@ client.on('message', function(m){
     }
 
     if (m.content.startsWith(prefix + 'wafiu')){
-        images_api.sfw.wafiu().then(response => {
-            m.channel.send(response.image)
-        }) 
+            m.channel.send("Out of use") 
     }
 
     if (m.content.startsWith(prefix + 'hentai')){
@@ -83,6 +85,9 @@ client.on('message', function(m){
             m.channel.send(response.image)
         }) 
     }
+
+    if (m.content==prefix + "help")
+        m.channel.send(help)
 })
 
 var express = require('express'); 
@@ -126,30 +131,3 @@ app.get('/', function(req, res){
 
     console.log("Server listening on PORT", PORT); 
 }); 
-
-var reader = fs.readdirSync("./commands/").filter(file => file.endsWith(".js"))
-for(const file of reader) {    
-    const command = require(`./commands/${file}`)
-    bot.command({
-        name: command.name,
-        aliases: command.aliases,
-        bkz: command.bkz,
-        code: command.code
-    })
-}
-
-bot.command({
-    name:"eval",
-    code:`
-    $eval[$message]
-    $onlyForIDs[$botOwnerID;]
-    `
-})
-
-bot.status({
-    text: "I'm a NSFW bot!",
-    type: "WATCHING",
-    status: "dnd",
-    time: 12
-  })
-
