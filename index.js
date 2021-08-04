@@ -71,19 +71,25 @@ client.on('message', function(m){
     if (m.content.startsWith(prefix + 'hentai')){
         images_api.nsfw.hentai().then(response => {
             m.channel.send(response.image)
-        }) 
+        })
+        if (!message.channel.nsfw) return
+             message.channel.send("This command can only be used on the NSFW channel. ") 
     }
 
     if (m.content.startsWith(prefix + 'boobs')){
         images_api.nsfw.boobs().then(response => {
             m.channel.send(response.image)
         }) 
+        if (!message.channel.nsfw) return
+             message.channel.send("This command can only be used on the NSFW channel. ") 
     }
 
     if (m.content.startsWith(prefix + 'lesbian')){
         images_api.nsfw.lesbian().then(response => {
             m.channel.send(response.image)
         }) 
+         if (!message.channel.nsfw) return
+             message.channel.send("This command can only be used on the NSFW channel. ") 
     }
 
     if (m.content==prefix + "help")
